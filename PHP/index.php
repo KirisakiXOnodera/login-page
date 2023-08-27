@@ -7,37 +7,41 @@
 </head>
 <body>
     <form action="index.php" method="post">
-        <label for="">Username:</label><br>
-        <input type="text" name="username"> <br>
-        <label for="">Password:</label><br>
-        <input type="password" name="password"> <br>
-        <input type="submit" name="login" value="Log in">
+        <input type="radio" name="creditcard" value="Visa">
+        Visa <br>
+        <input type="radio" name="creditcard"  value="Mastercard">
+        Mastercard <br>
+        <input type="radio" name="creditcard"  value="American Express">
+        American Express <br>
+        <input type="submit" name="confirm" value="confirm">
     </form>
 </body>
 </html>
 
+
 <?php
 
-    foreach($_POST as $key => $value){
-        echo "{$key} = {$value} <br>";
+    if(isset($_POST['confirm'])){
+
+        $credit_card = null;
+
+        if(isset($_POST['creditcard'])){
+            $credit_card = $_POST['creditcard'];
+        }
+
+        switch($credit_card){
+            case 'Visa':
+                echo "You have selected Visa";
+                break;
+            case 'Mastercard':
+                echo "You have selected Mastercard";
+                break;
+            case 'American Express':
+                echo "You have selected American Express";
+                break;
+            default:
+                echo "Yuo have to select a creditcard option";
+        }
     }
-
-    if(isset($_POST["login"])){
-
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-
-        if(empty($username)){
-            echo "Please enter your username";
-        }
-        elseif(empty($password)){
-            echo "Please enter your password";
-        }
-        else{
-            echo "Hello {$username}!";
-        }
-
-    }
-
-
+    
 ?>
