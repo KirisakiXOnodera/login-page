@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,23 +7,20 @@
 </head>
 <body>
     <form action="index.php" method="post">
-        <label for="">username:</label> <br>
-        <input type="text" name="username"> <br>
-        <label for="">password:</label> <br>
-        <input type="password" name="password"> <br>
-        <input type="submit" name="submit" value="submit">
+        <label for="">Username: </label> <br>
+        <input type="text" name="username">
+        <input type="submit">
     </form>
 </body>
 </html>
-<?php
-    if(!empty($_POST['password']) && !empty($_POST['username'])){
-        
-        $_SESSION['username'] = $_POST['username'];
-        $_SESSION['password'] = $_POST['password'];
 
-        header("Location: home.php");
+<?php
+    /*
+    foreach($_SERVER as $key => $value){
+        echo "{key} => {$value} <br>";
     }
-    else{
-        echo "Missing username or password <br>";
+    */
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        echo "Hello World";
     }
 ?>
