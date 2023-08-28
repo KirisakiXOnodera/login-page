@@ -10,9 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>This is the Home page</h1>
+    <h1>This is the Location page</h1>
     <br>
-    <p>Stuff about your home page can go here</p>
+    <p>Stuff about your location page can go here</p>
 </body>
 </html>
 
