@@ -1,21 +1,17 @@
 <?php
-    include("header.html");
-?>
+    setcookie("fav_food", "pizza", time() + - 0, "/");
+    setcookie("fav_drink", "coffee", time() + (86400 * 3), "/");
+    setcookie("fav_dessert", "icecream", time() + (86400 * 3), "/");
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is the Home page</h1>
-    <br>
-    <p>Stuff about your home page can go here</p>
-</body>
-</html>
+    /*
+    foreach($_COOKIE as $key => $value){
+        echo "{$key} => {$value} <br>";
+    }
+    */
 
-<?php
-    include("footer.html");
+    if(isset($_COOKIE["fav_food"])){
+        echo "Buy some {$_COOKIE["fav_food"]}";
+    }else{
+        echo "I don't know your favorite food";
+    }
 ?>
