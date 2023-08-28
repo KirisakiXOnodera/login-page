@@ -1,17 +1,33 @@
 <?php
-    setcookie("fav_food", "pizza", time() + - 0, "/");
-    setcookie("fav_drink", "coffee", time() + (86400 * 3), "/");
-    setcookie("fav_dessert", "icecream", time() + (86400 * 3), "/");
+    session_start();
+?>
 
-    /*
-    foreach($_COOKIE as $key => $value){
-        echo "{$key} => {$value} <br>";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <label for="">username:</label> <br>
+        <input type="text" name="username"> <br>
+        <label for="">password:</label> <br>
+        <input type="password" name="password"> <br>
+        <input type="submit" name="submit" value="submit">
+    </form>
+</body>
+</html>
+<?php
+    if(!empty($_POST['password']) && !empty($_POST['username'])){
+        
+        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['password'] = $_POST['password'];
+
+        header("Location: home.php");
     }
-    */
-
-    if(isset($_COOKIE["fav_food"])){
-        echo "Buy some {$_COOKIE["fav_food"]}";
-    }else{
-        echo "I don't know your favorite food";
+    else{
+        echo "Missing username or password <br>";
     }
 ?>
