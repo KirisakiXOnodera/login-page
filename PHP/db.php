@@ -13,11 +13,4 @@
         echo "Error connecting";
     }
 
-    if($conn){
-        //echo "Connected to database";
-    }
-
-    
-
-
 ?>
